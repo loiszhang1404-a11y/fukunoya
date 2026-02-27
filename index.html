@@ -2,55 +2,70 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sushi Fukunoya | Menu Digital</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root { --primary:#e63946; --dark:#1a1a1a; }
-        body{ margin:0; font-family:'Poppins',sans-serif; background:#f4f4f4; scroll-behavior:smooth; }
-        .promo{ background:var(--primary); color:white; text-align:center; padding:10px; font-weight:bold; position:sticky; top:0; z-index:1200; }
-        header{ background:white; padding:20px; text-align:center; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
-        h1 { margin: 0; color: var(--dark); font-family: 'Playfair Display', serif; font-size: 1.8rem; }
-        .citation{ font-family:'Playfair Display',serif; font-style:italic; color:#555; margin:10px 0; font-size: 0.9rem; }
-        .action-buttons{ display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-top: 15px; }
-        .btn-action{ padding:12px 18px; border-radius:30px; text-decoration:none; font-weight:600; font-size:0.85rem; box-shadow:0 4px 6px rgba(0,0,0,0.15); color: white !important; }
-        .btn-call{background:#e63946;}
-        .btn-map{background:#4285F4;}
-        .hero{ width:100%; height:250px; object-fit:cover; display: block; }
-        nav{ background:black; color:white; padding:10px; position:sticky; top:40px; z-index:1100; display:flex; gap:8px; overflow-x:auto; }
-        nav::-webkit-scrollbar{display:none;}
-        nav a{ color:white; text-decoration:none; font-weight:600; background:#333; padding:8px 14px; border-radius:20px; white-space:nowrap; }
-        .nav-reserver { background: #e63946 !important; }
-        .container{ max-width:800px; margin:auto; padding:10px; }
-        .menu-img{ width:100%; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.25); margin-bottom:20px; }
-        h2{ margin:30px 0 10px; font-size:1.3rem; color:#1a1a1a; border-left:5px solid #e63946; padding-left:10px; }
-        footer{ background:#1a1a1a; color:white; text-align:center; padding:30px 15px; margin-top:40px; }
-        .map-container { width: 100%; height: 350px; margin-top: 20px; border-radius: 10px; overflow: hidden; border: 2px solid #333; }
+        body { margin:0; font-family:'Poppins',sans-serif; background:#f4f4f4; scroll-behavior:smooth; color: #333; }
+        
+        /* BANNIÈRE PROMO : Fixe sur PC, simple sur Mobile pour gagner de la place */
+        .promo { background:var(--primary); color:white; text-align:center; padding:10px; font-weight:bold; font-size:0.9rem; z-index: 2000; }
+        
+        header { background:white; padding:20px 10px; text-align:center; box-shadow:0 2px 5px rgba(0,0,0,0.05); }
+        h1 { margin:0; font-size:1.6rem; color:var(--dark); }
+        .action-buttons { display:flex; justify-content:center; gap:10px; margin-top:15px; }
+        .btn { padding:12px 20px; border-radius:25px; text-decoration:none; color:white; font-size:0.9rem; font-weight:600; flex: 1; max-width: 150px; }
+        
+        /* NAVIGATION : Toujours accessible en haut sans boucher la vue */
+        nav { background:black; padding:12px 5px; position:sticky; top:0; z-index:1500; display:flex; gap:8px; overflow-x:auto; white-space:nowrap; -webkit-overflow-scrolling: touch; }
+        nav::-webkit-scrollbar { display:none; }
+        nav a { color:white; text-decoration:none; background:#333; padding:8px 15px; border-radius:20px; font-size:0.85rem; transition: 0.2s; }
+        nav a:active { background: var(--primary); }
+        .nav-reserver { background:var(--primary) !important; font-weight: bold; }
+
+        .container { max-width:900px; margin:auto; padding:15px; }
+        .menu-img { width:100%; border-radius:12px; margin-bottom:25px; box-shadow:0 5px 15px rgba(0,0,0,0.1); display: block; }
+        
+        h2 { border-left:5px solid var(--primary); padding-left:12px; margin:40px 0 15px; font-size:1.4rem; color: var(--dark); }
+        
+        /* CARTE MAPS RESPONSIVE */
+        .map-section { background:white; padding:20px; border-radius:15px; margin-top:30px; box-shadow:0 4px 10px rgba(0,0,0,0.05); }
+        .map-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; border: 1px solid #eee; }
+        .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        
+        footer { background:var(--dark); color:white; text-align:center; padding:40px 20px; margin-top:50px; }
+        footer p { margin: 5px 0; opacity: 0.9; }
+
+        /* Ajustements PC */
+        @media (min-width: 768px) {
+            .promo { position: sticky; top: 0; }
+            nav { top: 41px; padding: 15px; justify-content: center; }
+            h1 { font-size: 2.2rem; }
+        }
     </style>
 </head>
-<body id="top">
+<body>
 
 <div class="promo">🥡 -10% À EMPORTER | 🛵 LIVRAISON GRATUITE DÈS 15€</div>
 
-<header>
-    <h1>Sushi Fukunoya</h1>
-    <div class="citation">"L'art de la cuisine japonaise au cœur de Courbevoie"</div>
+<header id="accueil">
+    <h1>🍣 Sushi Fukunoya</h1>
+    <p style="margin:5px 0; color:#666;">Cuisine Japonaise Authentique</p>
     <div class="action-buttons">
-        <a href="tel:0146910408" class="btn-action btn-call">📞 Appeler</a>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Sushi+Fukunoya+Courbevoie" target="_blank" class="btn-action btn-map">📍 Adresse</a>
+        <a href="tel:0146910408" class="btn" style="background:var(--primary)">📞 Appeler</a>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=112+Avenue+de+l'Arche+92400+Courbevoie" target="_blank" class="btn" style="background:#4285F4">📍 Itinéraire</a>
     </div>
 </header>
 
-<img src="accueil.jpg" class="hero">
-
 <nav>
     <a href="tel:0146910408" class="nav-reserver">☎ RÉSERVER</a>
-    <a href="#top">Accueil</a>
-    <a href="#carte">À la carte</a>
+    <a href="#accueil">Accueil</a>
+    <a href="#carte">Carte</a>
     <a href="#brochettes">Brochettes</a>
     <a href="#chirashi">Chirashi</a>
-    <a href="#poke">Poké bowl</a>
-    <a href="#chaud">Menu chaud</a>
+    <a href="#poke">Poké</a>
+    <a href="#chaud">Chaud</a>
     <a href="#donburi">Donburi</a>
     <a href="#sushi">Sushi</a>
     <a href="#mixtes">Mixte</a>
@@ -60,33 +75,36 @@
 </nav>
 
 <div class="container">
+    <img src="accueil.jpg" class="menu-img" alt="Sushi Fukunoya Accueil">
+
     <div id="carte"><h2>🍱 À la Carte</h2><img src="IMG_4638.JPG" class="menu-img"></div>
     <div id="brochettes"><h2>🍢 Brochettes</h2><img src="IMG_4639.JPG" class="menu-img"></div>
     <div id="chirashi"><h2>🍣 Chirashi</h2><img src="IMG_4640.JPG" class="menu-img"></div>
     <div id="poke"><h2>🥗 Poké Bowl</h2><img src="IMG_4641.JPG" class="menu-img"></div>
     <div id="chaud"><h2>🔥 Menu Chaud</h2><img src="IMG_4642.JPG" class="menu-img"></div>
-    <div id="donburi"><h2>🍜 Donburi & Soupe Udon</h2><img src="IMG_4643.JPG" class="menu-img"></div>
+    <div id="donburi"><h2>🍜 Donburi & Soupe</h2><img src="IMG_4643.JPG" class="menu-img"></div>
     <div id="sushi"><h2>🍱 Sushi Maki Sashimi</h2><img src="IMG_4644.JPG" class="menu-img"></div>
     <div id="mixtes"><h2>🍱 Mixte</h2><img src="IMG_4646.JPG" class="menu-img"></div>
     <div id="bateaux"><h2>🚢 Bateaux</h2><img src="IMG_4647.JPG" class="menu-img"></div>
     <div id="boissons"><h2>🍷 Boissons</h2><img src="IMG_4648.JPG" class="menu-img"></div>
+
+    <div id="contact" class="map-section">
+        <h2 style="margin-top:0;">📍 Nous trouver</h2>
+        <p><strong>Adresse :</strong> 112 Avenue de l'Arche, 92400 Courbevoie</p>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.155415843516!2d2.238478676865239!3d48.89334319818815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e665aa588534db%3A0xcab666b3d270666e!2s112%20Av.%20de%20l'Arche%2C%2092400%20Courbevoie!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr" 
+                allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
 </div>
 
-<footer id="contact">
-    <p><strong>SUSHI FUKUNOYA</strong></p>
-    <p>112 Avenue de l'Arche, 92400 Courbevoie</p>
-    <p>📞 01 46 91 04 08</p>
-    <div class="map-container">
-        <iframe 
-            width="100%" 
-            height="100%" 
-            style="border:0" 
-            loading="lazy" 
-            allowfullscreen 
-            src="https://www.google.com/maps/embed/v1/place?key=REPLACE_WITH_YOUR_API_KEY&q=Sushi+Fukunoya,112+Avenue+de+l'Arche,92400+Courbevoie">
-        </iframe>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.155453005511!2d2.239402576922336!3d48.89334589886361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6656a588534db%3A0xb2b666b3d270666e!2sSushi%20Fukunoya!5e0!3m2!1sfr!2sfr!4v1708970000000!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
+<footer>
+    <p style="font-size:1.2rem; font-weight:bold;">SUSHI FUKUNOYA</p>
+    <p>Ouvert du Lundi au Samedi</p>
+    <p>11h00 - 15h00 | 18h00 - 22h30</p>
+    <p>Dimanche : Fermé</p>
+    <p style="margin-top:20px; color:var(--primary); font-weight:bold;">01 46 91 04 08</p>
 </footer>
 
 </body>
