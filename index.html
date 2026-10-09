@@ -165,7 +165,8 @@
             top: 0;
             z-index: 1000;
             display: flex;
-            gap: 2px;
+            justify-content: center;
+            gap: 16px;
             overflow-x: auto;
             white-space: nowrap;
             scrollbar-width: none;
@@ -202,20 +203,13 @@
 
         .menu-section {
             margin-bottom: 10px;
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.55s ease, transform 0.55s ease;
-        }
-        .menu-section.visible {
-            opacity: 1;
-            transform: none;
         }
 
         .section-header {
             display: flex;
             align-items: center;
             gap: 16px;
-            margin: 50px 0 20px;
+            margin: 30px 0 20px;
             scroll-margin-top: 55px;
         }
         .section-header::before {
@@ -334,93 +328,21 @@
         <img src="accueil.jpg" class="hero-img" alt="Intérieur du restaurant Sushi Fukunoya à Courbevoie" loading="eager">
     </div>
 
-    <nav aria-label="Sections du menu">
+    <nav aria-label="Navigation principale">
         <a href="tel:0146910408" class="nav-cta" aria-label="Réserver par téléphone">☎ Réserver</a>
         <a href="#top">Accueil</a>
-        <a href="#carte">À la carte</a>
-        <a href="#brochettes">Brochettes</a>
-        <a href="#chirashi">Chirashi</a>
-        <a href="#poke">Poké Bowl</a>
-        <a href="#chaud">Chaud</a>
-        <a href="#donburi">Donburi</a>
-        <a href="#sushi">Sushi</a>
-        <a href="#mixte">Mixte</a>
-        <a href="#bateaux">Bateaux</a>
-        <a href="#boissons">Boissons</a>
+        <a href="#menu">Notre Menu</a>
         <a href="#contact">Contact</a>
     </nav>
 
     <main>
         <div class="container">
 
-            <div class="menu-section" id="carte">
+            <div class="menu-section" id="menu">
                 <div class="section-header">
-                    <h2 class="category-title"><span class="emoji">🍱</span>À la Carte</h2>
+                    <h2 class="category-title"><span class="emoji">🍱</span>Notre Menu Complete</h2>
                 </div>
-                <img src="IMG_4638.jpg" class="menu-img" alt="Menu à la carte – Sushi Fukunoya" loading="eager">
-            </div>
-
-            <div class="menu-section" id="brochettes">
-                <div class="section-header">
-                    <h2 class="category-title"><span class="emoji">🍢</span>Brochettes</h2>
-                </div>
-                <img src="IMG_4639.JPG" class="menu-img" alt="Menu brochettes – Sushi Fukunoya" loading="lazy">
-            </div>
-
-            <div class="menu-section" id="chirashi">
-                <div class="section-header">
-                    <h2 class="category-title"><span class="emoji">🍣</span>Chirashi</h2>
-                </div>
-                <img src="IMG_4640.JPG" class="menu-img" alt="Menu chirashi – Sushi Fukunoya" loading="lazy">
-            </div>
-
-            <div class="menu-section" id="poke">
-                <div class="section-header">
-                    <h2 class="category-title"><span class="emoji">🥗</span>Poké Bowl</h2>
-                </div>
-                <img src="IMG_4641.JPG" class="menu-img" alt="Menu poké bowl – Sushi Fukunoya" loading="lazy">
-            </div>
-
-            <div class="menu-section" id="chaud">
-                <div class="section-header">
-                    <h2 class="category-title"><span class="emoji">🔥</span>Menu Chaud</h2>
-                </div>
-                <img src="IMG_4642.JPG" class="menu-img" alt="Menu chaud – Sushi Fukunoya" loading="lazy">
-            </div>
-
-            <div class="menu-section" id="donburi">
-                <div class="section-header">
-                    <h2 class="category-title"><span class="emoji">🍜</span>Donburi &amp; Soupe</h2>
-                </div>
-                <img src="IMG_4643.JPG" class="menu-img" alt="Menu donburi et soupe – Sushi Fukunoya" loading="lazy">
-            </div>
-
-            <div class="menu-section" id="sushi">
-                <div class="section-header">
-                    <h2 class="category-title"><span class="emoji">🍱</span>Sushi Maki Sashimi</h2>
-                </div>
-                <img src="IMG_4644.JPG" class="menu-img" alt="Menu sushi maki sashimi – Sushi Fukunoya" loading="lazy">
-            </div>
-
-            <div class="menu-section" id="mixte">
-                <div class="section-header">
-                    <h2 class="category-title"><span class="emoji">🍱</span>Mixte</h2>
-                </div>
-                <img src="IMG_4646.JPG" class="menu-img" alt="Menu mixte – Sushi Fukunoya" loading="lazy">
-            </div>
-
-            <div class="menu-section" id="bateaux">
-                <div class="section-header">
-                    <h2 class="category-title"><span class="emoji">🚢</span>Bateaux</h2>
-                </div>
-                <img src="IMG_4647.JPG" class="menu-img" alt="Menu bateaux – Sushi Fukunoya" loading="lazy">
-            </div>
-
-            <div class="menu-section" id="boissons">
-                <div class="section-header">
-                    <h2 class="category-title"><span class="emoji">🍷</span>Boissons</h2>
-                </div>
-                <img src="IMG_4648.JPG" class="menu-img" alt="Carte des boissons – Sushi Fukunoya" loading="lazy">
+                <img src="ImageToStl.com_merged-document 2.jpg" class="menu-img" alt="Menu complet – Sushi Fukunoya" loading="eager">
             </div>
 
             <section id="contact" class="map-section" aria-labelledby="title-contact">
@@ -451,19 +373,6 @@
         <p style="margin-top:14px;">Lundi – Samedi &nbsp;·&nbsp; 12h00–15h00 &nbsp;/&nbsp; 18h30–22h30</p>
         <p class="status-closed">Dimanche : Fermé</p>
     </footer>
-
-    <script>
-        const sections = document.querySelectorAll('.menu-section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.classList.add('visible');
-                    observer.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.08 });
-        sections.forEach(s => observer.observe(s));
-    </script>
 
 </body>
 </html>
